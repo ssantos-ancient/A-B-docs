@@ -1,0 +1,153 @@
+// ==========================================================================
+// Variables & mixins
+// Brand values follow the Ancient + Brave brand guidelines.
+// ==========================================================================
+
+@use 'sass:map';
+
+// --------------------------------------------------------------------------
+// Brand palette
+// --------------------------------------------------------------------------
+
+$ancient-green: #535f4a;
+$brave-gold: #9d723b;
+$brave-black: #3b332d;
+$warm-stone: #ebe9d9;
+$cold-stone: #fef9f6;
+$wild-blue: #5f6a78;
+$radiant-pink: #ad756e;
+$white: #ffffff;
+$red: #c0392b;
+
+// --------------------------------------------------------------------------
+// Semantic colours
+// --------------------------------------------------------------------------
+
+$color-bg: $cold-stone;
+$color-surface: $white;
+$color-surface-alt: $warm-stone;
+$color-text: $brave-black;
+$color-muted: $wild-blue;
+$color-primary: $ancient-green;
+$color-accent: $brave-gold;
+$color-border: #e6e1d3;
+$color-border-strong: #d4ccb8;
+$color-success: #2d6a4f;
+$color-danger: $red;
+$color-code-bg: #f7f4ec;
+$color-code-text: $brave-black;
+$color-highlight: rgba($brave-gold, 0.22);
+
+// Close icon colour, same as the theme's close icon
+$color-close: #9e5532;
+
+// Callouts: (accent, background)
+$callouts: (
+  note: ($wild-blue, #eef0f3),
+  tip: ($ancient-green, #eef1ea),
+  warning: ($brave-gold, #f8f0e4),
+  danger: ($red, #f9e9e7),
+);
+
+// Responsive badges on the utility page: (background, text)
+$resp-badges: (
+  mobile: (#dff0e8, #2d6a4f),
+  desktop: (#dde9f8, #1e4b8a),
+  tablet: (#fef3d0, #7a5700),
+  both: (#ede9f6, #4a2d8a),
+);
+
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+
+$font-sans: 'Montserrat', Arial, sans-serif;
+$font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+$fs-xs: 11px;
+$fs-sm: 13px;
+$fs-base: 15px;
+$fs-md: 17px;
+$fs-lg: 20px;
+$fs-xl: 26px;
+$fs-2xl: 34px;
+
+$lh-tight: 1.25;
+$lh-base: 1.65;
+
+// --------------------------------------------------------------------------
+// Shape, depth & motion
+// --------------------------------------------------------------------------
+
+$radius-sm: 4px;
+$radius: 8px;
+$radius-lg: 12px;
+$radius-pill: 999px;
+
+$shadow-sm: 0 1px 2px rgba($brave-black, 0.06);
+$shadow-md: 0 4px 16px rgba($brave-black, 0.08);
+$shadow-lg: 0 20px 60px rgba($brave-black, 0.22);
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.25s ease;
+
+// --------------------------------------------------------------------------
+// Layout
+// --------------------------------------------------------------------------
+
+$topbar-h: 64px;
+$sidebar-w: 264px;
+$toc-w: 220px;
+$content-max: 780px;
+$content-wide-max: 1200px;
+$gutter: 16px;
+$gutter-lg: 40px;
+
+$z-sidebar: 90;
+$z-topbar: 100;
+$z-palette: 200;
+$z-toast: 999;
+
+$breakpoints: (
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+// --------------------------------------------------------------------------
+// Mixins
+// --------------------------------------------------------------------------
+
+@mixin up($bp) {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+@mixin down($bp) {
+  @media (max-width: map.get($breakpoints, $bp) - 1px) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}
+
+@mixin eyebrow {
+  font-size: $fs-xs;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-accent;
+}
+
+@mixin reset-button {
+  appearance: none;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}

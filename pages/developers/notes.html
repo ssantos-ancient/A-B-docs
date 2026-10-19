@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="notes" data-no-img-slots>
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Notes</h1>
+    <p class="lead">Settings that don't work and other problems found in the theme code (checked against the <code>main</code> branch). Fix them, then remove them from this list.</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="section-settings">Section settings that do nothing</h2>
+    <ul class="notes-list">
+      <li><strong>Collection pages</strong>: Activate card does nothing.</li>
+      <li><strong>Collection Section</strong>: Intro Text, Card Layout, Image Offset and Custom subs info code do nothing.</li>
+      <li><strong>Collection Slider</strong>: The Title setting does nothing.</li>
+      <li><strong>Columns with images</strong>: Custom Class and Custom Code do nothing.</li>
+      <li><strong>Content Collection</strong>: Green Button Mobile does nothing.</li>
+      <li><strong>Content Double text</strong>: Custom Class does nothing.</li>
+      <li><strong>Content Featured Article</strong>: section Classes does nothing.</li>
+      <li><strong>Content Image &amp; Cards</strong>: Title Breadcrumb and Constrain Equal text boxes do nothing.</li>
+      <li><strong>Content Image &amp; Product</strong>: Constrain Equal text boxes does nothing.</li>
+      <li><strong>Content Narrow Image</strong>: Link Title does nothing, so the link has no screen reader text.</li>
+      <li><strong>Content Product Card</strong>: Hide review text bug does nothing. Reviews are always hidden.</li>
+      <li><strong>Content Quotation</strong>: The button never shows, even when its text and link are filled in.</li>
+      <li><strong>Content Text &amp; Image</strong>: Constrain Equal text boxes and Text Box Max Width do nothing.</li>
+      <li><strong>Content Text &amp; Image v2</strong>: Constrain Equal text boxes does nothing.</li>
+      <li><strong>Downloadable Slider Card</strong>: Landscape images and the card&#x27;s text field do nothing.</li>
+      <li><strong>Feature Breadcrumb</strong>: Text alignment does nothing. The breadcrumb is always on the left.</li>
+      <li><strong>Feature Button</strong>: The Custom Background Color settings do nothing.</li>
+      <li><strong>Featured Cards</strong>: Product Background Colour, Top Icon Code and Little Logo do nothing.</li>
+      <li><strong>Featured collection</strong>: Subtext does nothing.</li>
+      <li><strong>Health Goal Icon Card</strong>: Icon Code does nothing.</li>
+      <li><strong>Health Goal Icon Card V2</strong>: Icon Code does nothing.</li>
+      <li><strong>Health Goal Product Slider</strong>: Title Font does nothing. The heading is always Asul.</li>
+      <li><strong>Image &amp; Download Card</strong>: Layout and Constrain Equal text boxes do nothing.</li>
+      <li><strong>Manual Products</strong>: Toggle ID&#x27;s Display, Card Layout and Image Offset do nothing.</li>
+      <li><strong>Method Timeline</strong>: Image 1&#x27;s Default image does nothing.</li>
+      <li><strong>PLP Enhanced</strong>: Activate card does nothing.</li>
+      <li><strong>Product pages v2</strong>: Make Subscriptions POP does nothing.</li>
+      <li><strong>Product Slider</strong>: Load Slider JS and Image Offset do nothing.</li>
+      <li><strong>Scrolljacked Cards</strong>: Title Classes does nothing.</li>
+      <li><strong>Text &amp; Image Fadein</strong>: Constrain Equal text boxes does nothing.</li>
+      <li><strong>Text &amp; Image SVG</strong>: Constrain Equal text boxes does nothing.</li>
+      <li><strong>Text columns with images</strong>: Text placement. Use Text alignment does nothing.</li>
+    </ul>
+
+    <h2 id="product-page">Product page &amp; Subscriptions</h2>
+    <ul class="notes-list">
+      <li><strong>Subscription Content</strong>: The setting in Product Extras is never read. The "How subscriptions work" panel only uses the product's <strong>Subscription gifts</strong> metafield, or the first entry.</li>
+      <li><strong>Subscription panel image</strong>: Alt text is always empty.</li>
+      <li><strong>Promo tag</strong>: Shows twice on products with only one image.</li>
+      <li><strong>Hide subscription</strong>: The top of the page still shows the "From" subscription price.</li>
+      <li><strong>Promo tag left</strong>: Overlaps a left badge, and the image icon can cover both in the top-left corner.</li>
+      <li><strong>Discount message</strong>: The <code>ancient.discount_message</code> metafield is read but never shown in the add to cart button.</li>
+      <li><strong>Buy now</strong>: The mobile sticky button text is fixed, so the Button label setting is ignored.</li>
+      <li><strong>Product message</strong>: The add to cart form reads a <code>productmessage</code> setting that doesn't exist.</li>
+    </ul>
+
+    <h2 id="cart-and-promos">Cart, promos &amp; Theme settings</h2>
+    <ul class="notes-list">
+      <li><strong>Settings that do nothing</strong>: Scripts (subscription freebie, super promos, stack promos, individual freebie, auto add product X), Enable gift offer script, prepend to message, Samples, the PDP icon texts, and the variant title / line item text fields in the in cart threshold offer.</li>
+      <li><strong>Freebie variant</strong>: <code>freebeevar</code> is a product setting but is compared with a variant ID, so it probably never matches.</li>
+      <li><strong>Spain freebie</strong>: <code>freebeevar_es</code> is read in the side cart but isn't in the settings.</li>
+      <li><strong>Free subscription shipping</strong>: The cart page only checks the default market toggle, not Germany or Spain.</li>
+      <li><strong>Translations</strong>: "% Off" and "Subscribe and save" pill texts are missing in German and Spanish.</li>
+    </ul>
+
+    <h2 id="articles">Articles &amp; Journal</h2>
+    <ul class="notes-list">
+      <li><strong>Custom code</strong>: The Custom code setting in both article sections outputs nothing (it reads <code>settings.settings.code</code>).</li>
+      <li><strong>Article settings</strong>: Show date, Show prev/next, Show share buttons and Hide disclaimer are never read. Prev/next always shows.</li>
+      <li><strong>Author card</strong>: Bio, link and photo alt text may be empty (read without <code>.value</code>).</li>
+      <li><strong>Market tags</strong>: <code>market_xx</code> tags show as visible tags under articles (the check compares 4 characters with <code>market_</code>).</li>
+      <li><strong>Tag matching</strong>: Ignores capitals in carousels and cards, but not on the Journal page (tag bar, heading, filters).</li>
+      <li><strong>Hover grid and menu articles</strong>: Don't skip articles tagged <code>hide</code> or for other markets.</li>
+      <li><strong>Journal order</strong>: The "updated" sort only reorders within each page of 20.</li>
+    </ul>
+
+    <h2 id="collections">Collection pages &amp; Banners</h2>
+    <ul class="notes-list">
+      <li><strong>Activate card</strong>: Never read. A banner shows whenever its position and collection handle match.</li>
+      <li><strong>Show for collections</strong>: Matches part of a handle, so <code>gifts</code> also matches <code>festive-gifts</code>.</li>
+      <li><strong>Double card</strong>: With only a mobile image, desktop has no image and can reuse the previous double card's image.</li>
+      <li><strong>PLP Enhanced</strong>: Double cards only take one column.</li>
+      <li><strong>Single card image</strong>: The 612w source sits outside a picture element, so it's ignored.</li>
+      <li><strong>Builder PLP Header</strong>: With only a mobile image, desktop shows nothing.</li>
+    </ul>
+
+    <h2 id="navigation-and-images">Navigation, images &amp; Theme files</h2>
+    <ul class="notes-list">
+      <li><strong>Old header</strong>: <code>sections/header.liquid</code> and its snippets are no longer used. The <code>nav-link</code> block can't be added.</li>
+      <li><strong>Hero fixed height</strong>: Retina images never switch on (the snippet reads section settings instead of block settings).</li>
+      <li><strong>Hero tablet image</strong>: Not used in the default layout. Tablets get the desktop image.</li>
+      <li><strong>Article cover gradient</strong>: The top gradient targets <code>.heroshot</code> but the image class is <code>heroshot_image</code>.</li>
+      <li><strong>Landscape product card</strong>: In "quote" mode the name and role may be empty (read from the wrong place).</li>
+      <li><strong>Missing sections</strong>: <code>image-subscriptions</code> and <code>static-section</code> are rendered but the files don't exist.</li>
+      <li><strong>Search quiz link</strong>: Built as <code>routes.root_url | append: 'pages/health-goals-quiz'</code> with no slash, so on a language path like <code>/en</code> it goes to <code>/enpages/health-goals-quiz</code>.</li>
+      <li><strong>Search and header translations</strong>: The search quiz text ("Not sure where to start?" and its link) and the new header menu labels are only in English. They are missing in German and Spanish.</li>
+    </ul>
+  </div>
+</main>
+
+</body>
+</html>

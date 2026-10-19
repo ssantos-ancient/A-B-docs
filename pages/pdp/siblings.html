@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="pdp-siblings">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Sibling products</h1>
+    <p class="lead">Siblings are versions of the same product, such as a tub and sachets. They show as tiles above the add to cart box on the product page, so shoppers can switch between them. You set them in <strong>Shopify admin › Products › [product] › Metafields</strong>.</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="link-the-products">Link the sibling products</h2>
+    <ol class="steps">
+      <li>Go to <strong>Shopify admin › Products › [first product] › Metafields › Siblings</strong>.</li>
+      <li>Add every product in the group, <strong>including this one</strong>, in the order you want the tiles to show. Click <strong>Save</strong>.</li>
+      <li>Repeat on every other product in the group, with the same list in the same order.</li>
+    </ol>
+    <div class="callout callout--warning">
+      <div>
+        <span class="callout__title">Use the same list on every product</span>
+        If one product has a different list, the tiles change as shoppers switch. Keep to 2 or 3 siblings, or the tile images are hidden.
+      </div>
+    </div>
+
+    <h2 id="add-a-sibling-pill">Add a pill to a tile</h2>
+    <p>A small label on top of a tile, for example "Best value".</p>
+    <ol class="steps">
+      <li>Go to <strong>Shopify admin › Products › [product that needs the pill] › Metafields › Sibling tag</strong>.</li>
+      <li>Type the label and click <strong>Save</strong>.</li>
+    </ol>
+
+    <h2 id="change-what-a-tile-says">Change the tile text</h2>
+    <p>Set these on each sibling in <strong>Shopify admin › Products › [product] › Metafields</strong>:</p>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Metafield</th><th>Shows</th><th>If empty</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Sibling label</th><td>Tile name, for example "Sachets"</td><td>Product title</td></tr>
+          <tr><th scope="row">Sibling custom message</th><td>Grey second line</td><td>Servings line</td></tr>
+          <tr><th scope="row">Number of servings prefix + Number of servings</th><td>Servings line, for example "Up to 30 Servings"</td><td>No second line</td></tr>
+          <tr><th scope="row">Subscriptions image</th><td>Tile image while Subscribe &amp; Save is selected</td><td>The normal product image</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

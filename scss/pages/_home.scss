@@ -1,0 +1,100 @@
+// ==========================================================================
+// Page — Home
+// ==========================================================================
+
+@use '../variables' as *;
+
+// Full-width photo hero: breaks out of the content padding to touch both edges
+// The hero and the home sections use the full content width
+.content > .hero,
+.content > .home-section {
+  max-width: none;
+}
+
+.hero {
+  margin: -32px (-$gutter) 48px;
+  padding: 56px $gutter 64px;
+  color: $white;
+  background:
+    linear-gradient(90deg, rgba(#000, 0.78) 0%, rgba(#000, 0.55) 55%, rgba(#000, 0.25) 100%),
+    linear-gradient(0deg, rgba(#000, 0.35), rgba(#000, 0) 50%),
+    url("../assets/images/background.jpg") center / cover no-repeat;
+
+  @include up(md) {
+    margin: -40px (-$gutter-lg) 56px;
+    padding: 96px $gutter-lg 104px;
+  }
+
+  .eyebrow {
+    color: lighten($color-accent, 22%);
+  }
+
+  &__title {
+    max-width: 16ch;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: $white;
+
+    @include up(md) {
+      font-size: 48px;
+    }
+
+    @include down(md) {
+      font-size: 30px;
+    }
+  }
+
+  .lead {
+    margin-top: 16px;
+    color: rgba($white, 0.85);
+  }
+
+  &__search {
+    @include reset-button;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 520px;
+    height: 52px;
+    margin-top: 28px;
+    padding: 0 14px 0 18px;
+    font-size: $fs-base;
+    color: $color-muted;
+    background: $color-surface;
+    border: 1px solid $color-border-strong;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+      border-color: $color-accent;
+      box-shadow: $shadow-md;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    span {
+      flex: 1;
+      text-align: left;
+    }
+  }
+}
+
+.home-section {
+  & + & {
+    margin-top: 56px;
+  }
+
+  > h2 {
+    margin-bottom: 18px;
+    font-size: $fs-lg;
+    font-weight: 700;
+    color: $color-primary;
+  }
+}

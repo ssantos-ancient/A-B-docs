@@ -1,0 +1,11 @@
+{
+  "name": "ab-docs",
+  "private": true,
+  "description": "Ancient + Brave internal documentation and guidelines",
+  "scripts": {
+    "build:css": "npx -y sass@1.77.8 scss/main.scss css/main.css --no-source-map",
+    "watch:css": "npx -y sass@1.77.8 --watch scss/main.scss css/main.css --no-source-map",
+    "serve": "npx -y serve@14.2.4 .",
+    "import-images": "node scripts/import-images.mjs"
+  }
+}

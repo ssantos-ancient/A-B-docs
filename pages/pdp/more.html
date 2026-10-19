@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="pdp-more">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>More product options</h1>
+    <p class="lead">Other product page features. Unless a step says otherwise, set them in <strong>Shopify admin › Products › [product] › Metafields</strong>. Some also need a setting in the <strong>Theme editor</strong> (Online Store › Themes › Customize).</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="pre-order">Set up a pre-order</h2>
+    <ol class="steps">
+      <li>In <strong>Shopify admin › Products › [product] › Metafields</strong>, turn on <strong>Preorder</strong>.</li>
+      <li>In the same product, under <strong>Inventory</strong>, tick <strong>Continue selling when out of stock</strong>. Click <strong>Save</strong>.</li>
+    </ol>
+    <p>The button now says "Preorder". The shipping date line is the same for all products. To change it, go to <strong>Shopify admin › Online Store › Themes</strong>, click <strong>…</strong> next to Customize, choose <strong>Edit default theme content</strong> and search for "preorder".</p>
+
+    <h2 id="show-as-sold-out">Show a product as sold out</h2>
+    <ol class="steps">
+      <li>Turn on <strong>Fake out of stock</strong>. The button changes to "Sold out". Real stock doesn't change.</li>
+      <li><strong>Optional</strong>: add a <strong>Back in stock form ID</strong> from Klaviyo, so shoppers can sign up to hear when it's back.</li>
+      <li><strong>Optional</strong>: choose a <strong>Back in stock related product</strong> to recommend instead.</li>
+    </ol>
+
+    <h2 id="price-per-serving">Show the price per serving</h2>
+    <ol class="steps">
+      <li>Fill in <strong>Servings</strong> (for example "30 servings") and <strong>Number of servings</strong> (for example 30).</li>
+      <li>In <strong>Theme editor</strong>, open a product page, click <strong>Product pages v2</strong> and turn on <strong>Show Price per serving</strong>.</li>
+    </ol>
+
+    <h2 id="change-the-displayed-price">Change the price shown</h2>
+    <p>Fill in both <strong>Overwrite price</strong> and <strong>Overwrite compare price</strong>. This only changes the price shown on the site. The cart still charges the real price.</p>
+
+    <h2 id="product-info-sections">Add product info sections</h2>
+    <p>Each section shows when its metafield is filled in and its setting is turned on in <strong>Theme editor › Product pages v2</strong>.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Section</th><th>Metafield</th><th>Each entry has</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Testimonials</th><td>Testimonials</td><td>Quote, name, role</td></tr>
+          <tr><th scope="row">Ingredients</th><td>Visual ingredients</td><td>Name, icon, description</td></tr>
+          <tr><th scope="row">References</th><td>Product references</td><td>Title, text. Shows under Ingredients.</td></tr>
+          <tr><th scope="row">Footprint</th><td>Product footprint</td><td>Text and footprint table</td></tr>
+          <tr><th scope="row">Nutrition icons</th><td>Related nutrition icons</td><td>Icon, title</td></tr>
+          <tr><th scope="row">Certifications</th><td>Product certifications</td><td>Logo, title. Also add the <strong>Certifications</strong> block in Product pages v2.</td></tr>
+          <tr><th scope="row">Health goals</th><td>Related health goals</td><td>Icon, title, description, page</td></tr>
+          <tr><th scope="row">What's inside</th><td>Bundle products</td><td>The products in the bundle. Also turn on <strong>Show what's inside</strong>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Lifecycle analysis</strong> works the other way round. Go to <strong>Shopify admin › Content › Metaobjects › Product lifecycle analysis</strong>, add the product to an entry, then turn on <strong>Show Lifecycle Analysis</strong> in Product pages v2.</p>
+
+    <h2 id="under-the-title">Add text under the product title</h2>
+    <ul>
+      <li><strong>Product form</strong>: a small line under the title, for example "Powder".</li>
+      <li><strong>Breadcrumb collection</strong>: choose a collection to show a breadcrumb (the "back to" link above the title). With no collection, no breadcrumb shows.</li>
+    </ul>
+
+    <h2 id="landing-page-products">Hide the menu for a landing page</h2>
+    <p>Turn on <strong>Minimal header</strong> to hide the menu and announcement bar, leaving only the logo and cart. Useful for ad landing pages.</p>
+
+    <h2 id="product-types">Set the product type</h2>
+    <p>Set this in <strong>Shopify admin › Products › [product] › Product organization › Type</strong> (not a metafield).</p>
+    <ul>
+      <li><strong>Promo</strong>: no add to cart button. Instead, a button links to the same product without "-promo" in the web address. The product's handle (the end of its web address) must end in <code>-promo</code>.</li>
+      <li><strong>Wholesale</strong>: no add to cart button.</li>
+    </ul>
+
+    <h2 id="pages-used-in-side-panels">Edit the side panel pages</h2>
+    <p>These side panels show on every product page. They're normal pages, so edit them in <strong>Shopify admin › Online Store › Pages</strong>:</p>
+    <ul>
+      <li><strong>Delivery</strong>: page <strong>shipping</strong></li>
+      <li><strong>30-day guarantee</strong>: page <strong>guarantee</strong></li>
+      <li><strong>Gift subscriptions</strong>: page <strong>gift-subscriptions-information</strong></li>
+    </ul>
+  </div>
+</main>
+
+</body>
+</html>

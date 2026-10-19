@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="pdp-subscriptions">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Subscriptions</h1>
+    <p class="lead">Change the Subscribe &amp; Save box on the product page (PDP). Most of it is set on each product in <strong>Shopify admin › Products › [product] › Metafields</strong>.</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="choose-the-how-subscriptions-work-content">Choose the "How subscriptions work" content</h2>
+    <p>The <strong>How subscriptions work</strong> link in the subscription box opens a side panel that shows the free gifts subscribers get.</p>
+    <ol class="steps">
+      <li>Go to <strong>Shopify admin › Products › [product] › Metafields › Subscription gifts</strong>.</li>
+      <li>Select an existing entry (see the table below) and click <strong>Save</strong>.</li>
+      <li>Need different gifts? Create a new entry in <strong>Shopify admin › Content › Metaobjects › Subscription gifts</strong>, then select it.</li>
+    </ol>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Product</th><th>Entry to select</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Powder</th><td><strong>Subscription - Default</strong></td></tr>
+          <tr><th scope="row">Capsules</th><td><strong>Subscription - Pill Case</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout--warning">
+      <div>
+        <span class="callout__title">Always select it on the product</span>
+        If nothing is selected on the product, the panel shows whichever entry Shopify lists first.
+      </div>
+    </div>
+
+    <h2 id="change-the-subscription-message">Change the subscription message</h2>
+    <p>The bullets under <strong>Subscribe &amp; Save</strong> come from the first of these that is filled in:</p>
+    <ol>
+      <li><strong>Shopify admin › Products › [product] › Metafields › ATC subscription info</strong> (an entry you select).</li>
+      <li><strong>Shopify admin › Products › [product] › Metafields › Subscription widget</strong> (a simple list).</li>
+      <li><strong>Theme editor › Theme settings › Add to cart area › Default Subscription Offer</strong>, which applies to all products.</li>
+    </ol>
+    <p><strong>To change it for one product:</strong></p>
+    <ol class="steps">
+      <li>Go to <strong>Shopify admin › Products › [product] › Metafields › ATC subscription info</strong>.</li>
+      <li>Select an existing entry, or create a new one in <strong>Shopify admin › Content › Metaobjects › ATC subscription info</strong> and select it. (ATC means add to cart.)</li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+    <div class="callout callout--tip">
+      <div>
+        <span class="callout__title">Add an icon to a free gift</span>
+        Start the item with a number: <code>01 - Ritual Scoop</code>. Numbers 01 to 05 each show a different icon (scoop, pill case, jar, tin, box). Keep one space on each side of the dash.
+      </div>
+    </div>
+    <p>To change the <strong>one-time purchase</strong> box, do the same, but select the entry in <strong>Metafields › OTP purchase info</strong> (OTP means one-time purchase).</p>
+
+    <h2 id="product-options">Change the purchase options</h2>
+    <p>Turn these on in <strong>Shopify admin › Products › [product] › Metafields</strong>:</p>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Metafield</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">One time purchase first</th><td>Shows one-time purchase above subscription.</td></tr>
+          <tr><th scope="row">One time purchase preselected</th><td>Selects one-time purchase when the page opens.</td></tr>
+          <tr><th scope="row">ATC one time purchase featured</th><td>Highlights the one-time purchase option.</td></tr>
+          <tr><th scope="row">Hide subscription</th><td>Offers one-time purchase only.</td></tr>
+          <tr><th scope="row">One time discount percentage</th><td>Adds a "% Off" pill to the one-time option, for example "10% Off".</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="green-subscribe-and-save-banner">Show the green "Subscribe and save" banner</h2>
+    <ol class="steps">
+      <li>Go to <strong>Theme editor › Theme settings › Add to cart area</strong> and turn on <strong>Highlight subscription option on ATC</strong>. It's currently off.</li>
+      <li>To change the banner text for one product, fill in <strong>Shopify admin › Products › [product] › Metafields › PDP custom subscription box title</strong>.</li>
+      <li>To add a pill, fill in <strong>Highlight subscription percentage</strong> in the same place, for example "30% Off".</li>
+    </ol>
+    <p>These two product fields don't show on the site while the theme setting is off.</p>
+  </div>
+</main>
+
+</body>
+</html>

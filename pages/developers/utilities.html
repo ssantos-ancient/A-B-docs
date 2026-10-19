@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/utilities-data.js" defer></script>
+<script src="js/utilities.js" defer></script>
+</head>
+<body data-page="utilities" class="layout-wide no-toc">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Utility classes</h1>
+    <p class="lead">Every Ancient + Brave utility class in one place. Search by name, description or CSS, filter by category, and copy the class you need.</p>
+  </header>
+
+  <div class="toolbar" role="search">
+    <div class="toolbar__search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <label for="search" class="visually-hidden">Search utility classes</label>
+      <input type="search" id="search" data-page-search placeholder="Search classes, descriptions or CSS…" autocomplete="off" spellcheck="false">
+      <span class="toolbar__count" id="results-count" aria-live="polite"></span>
+    </div>
+    <div class="toolbar__row">
+      <div class="toolbar__chips" id="filter-row" role="group" aria-label="Filter by category"></div>
+      <label class="switch"><input type="checkbox" id="toggle-css"> Show CSS</label>
+    </div>
+  </div>
+
+  <div id="results"></div>
+
+  <div class="empty-state" id="no-results" hidden>
+    <strong>No classes found</strong>
+    Try a different search term or clear the filters.
+    <div><button class="btn btn--ghost" type="button" id="clear-filters">Clear filters</button></div>
+  </div>
+</main>
+
+</body>
+</html>

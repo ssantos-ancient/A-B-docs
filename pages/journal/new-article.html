@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="new-article">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Writing a new article</h1>
+    <p class="lead">There are two kinds of Journal article. A <strong>default article</strong> is written in the blog post editor in <strong>Shopify admin › Content › Blog posts</strong>. A <strong>custom article</strong> is built with sections in the <strong>Theme editor</strong> (Online Store › Themes › Customize).</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="add-the-content">Write the article</h2>
+    <ol class="steps">
+      <li>Go to <strong>Shopify admin › Content › Blog posts</strong> and click <strong>Create blog post</strong>.</li>
+      <li>Write the text in <strong>Content</strong>.</li>
+      <li>Use <strong>Heading 2</strong> for section titles.</li>
+      <li>Use <strong>Blockquote</strong> for quotes.</li>
+    </ol>
+    <p>All the metafields below are at the bottom of the same post, under <strong>Metafields</strong>.</p>
+
+    <h2 id="add-a-cover-image">Add a cover image</h2>
+    <ol class="steps">
+      <li>Add the cover in <strong>Image</strong>, about 2560 × 1013px. See <a href="pages/site/image-sizes.html">Image sizes</a>.</li>
+      <li>If it looks badly cropped, add the image in <strong>Metafields › Article cover</strong> instead.</li>
+      <li>In the metafield, set the <strong>focal point</strong> to fix the framing.</li>
+    </ol>
+    <p>One cover is used for both desktop and mobile. On mobile, only the centre square shows.</p>
+
+    <h2 id="choose-an-author">Choose an author</h2>
+    <ol class="steps">
+      <li>Go to <strong>Metafields › Author</strong> and choose an author.</li>
+      <li>If they're not in the list, create them in <strong>Shopify admin › Content › Metaobjects › Author</strong> (name, photo, job title, bio, link), then select them.</li>
+      <li>If there's no named author, choose <strong>Ancient + Brave</strong>.</li>
+    </ol>
+
+    <h2 id="short-intro">Add a short intro</h2>
+    <p>Fill in <strong>Metafields › Short intro</strong>. It shows below the title.</p>
+
+    <h2 id="in-this-article">Add "In this article" links</h2>
+    <ol class="steps">
+      <li>In <strong>Metafields › In this article</strong>, add each topic as a list item.</li>
+      <li>Type each topic exactly as the matching heading in the content, character for character, or the link won't work.</li>
+    </ol>
+    <p>Each topic becomes a link that jumps to that part of the article. You can copy and share these links.</p>
+
+    <h2 id="at-a-glance">Add "At a glance" points</h2>
+    <ol class="steps">
+      <li>In <strong>Metafields › At a glance</strong>, add each point as a list item.</li>
+      <li>The points show below "In this article".</li>
+    </ol>
+    <div class="callout callout--warning">
+      <div>
+        <span class="callout__title">Capitals are removed</span>
+        Only the first letter of each point stays capitalised, so "DNA" becomes "Dna". Reword points to avoid acronyms.
+      </div>
+    </div>
+
+    <h2 id="article-settings">Publish the article</h2>
+    <ol class="steps">
+      <li>Add at least one <strong>tag</strong>, so the article can be filtered. See <a href="pages/journal/articles-by-tag.html">Articles by tag</a>.</li>
+      <li>Set <strong>Theme template</strong> to <strong>Default blog post</strong>.</li>
+      <li>Set <strong>Blog</strong> to <strong>Journal</strong>.</li>
+      <li>Set visibility to <strong>Visible</strong> and click <strong>Save</strong>.</li>
+    </ol>
+    <p>Optional: add products in <strong>Metafields › Featured products</strong> to show a product slider after the article.</p>
+
+    <h2 id="custom-article">Create a custom article</h2>
+    <p>Use this for designed, long-form stories.</p>
+    <ol class="steps">
+      <li>Create the post in <strong>Shopify admin › Content › Blog posts</strong> as usual, and fill in the metafields and tags. Leave <strong>Content</strong> empty.</li>
+      <li>Set <strong>Blog</strong> to <strong>Custom blog</strong> for now, so it doesn't show in the Journal yet.</li>
+      <li>In the <strong>Theme editor</strong>, create a new blog post template based on <strong>custom-blog-post</strong>.</li>
+      <li>Back in the post, set <strong>Theme template</strong> to your new template and set it to <strong>Visible</strong>.</li>
+      <li>In the <strong>Theme editor</strong>, open your template and choose the article in <strong>Select article</strong>.</li>
+    </ol>
+    <div class="callout callout--warning">
+      <div>
+        <span class="callout__title">One template per article</span>
+        Every custom article needs its own template. Never reuse another article's template. "At a glance" doesn't show on custom articles.
+      </div>
+    </div>
+
+    <h2 id="build-and-publish">Build and publish a custom article</h2>
+    <ol class="steps">
+      <li>In the <strong>Theme editor</strong>, open your template and build the article with the blocks below.</li>
+      <li>When it's ready, go back to the post in <strong>Shopify admin › Content › Blog posts</strong> and set <strong>Blog</strong> to <strong>Journal</strong>. It now shows in the Journal.</li>
+    </ol>
+
+    <h2 id="blocks-available">Blocks you can use</h2>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Block</th><th>Use it for</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Text</th><td>Body copy.</td></tr>
+          <tr><th scope="row">Builder 50 / 50</th><td>Image and text side by side.</td></tr>
+          <tr><th scope="row">Blockquote</th><td>A pull quote with its author.</td></tr>
+          <tr><th scope="row">Related products slider</th><td>Products inside the article.</td></tr>
+          <tr><th scope="row">Video</th><td>An MP4 file or a video link.</td></tr>
+          <tr><th scope="row">Image</th><td>A single image.</td></tr>
+          <tr><th scope="row">Builder Grid</th><td>An image grid with captions.</td></tr>
+          <tr><th scope="row">LightLabs Table</th><td>The LightLabs table for a product.</td></tr>
+          <tr><th scope="row">Custom code</th><td>Ask a developer.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="plp-banners">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>PLP banners</h1>
+    <p class="lead">Banners that sit inside the product grid on a product listing page (PLP), also called a collection page. A <strong>Single Card</strong> takes one product space. A <strong>Double Card</strong> takes two, and a full row on mobile. You add them in the <strong>Theme editor</strong> (Online Store › Themes › Customize).</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="add-a-banner-to-a-collection">Add a banner to a collection</h2>
+    <ol class="steps">
+      <li>In <strong>Shopify admin › Products › Collections › [collection]</strong>, check the <strong>Theme template</strong>. To show banners on this collection only, create a new template in the Theme editor and select it here.</li>
+      <li>In the <strong>Theme editor</strong>, open the collection (select it from the dropdown at the top) and click the <strong>Collection pages</strong> section.</li>
+      <li>Click <strong>Add block</strong> and choose <strong>Single Card</strong> or <strong>Double Card</strong>.</li>
+      <li>Set <strong>Position</strong>: the product space where the banner appears, for example 7.</li>
+      <li>In <strong>Show for collections</strong>, enter the collection handle, for example <code>collagen-products</code>.</li>
+      <li>Add the image (plus a mobile image for a Double Card), title, text, button text and link.</li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+    <div class="callout callout--tip">
+      <div>
+        <span class="callout__title">Find the collection handle</span>
+        It's the last part of the collection's web address: <code>/collections/<strong>collagen-products</strong></code>.
+      </div>
+    </div>
+
+    <h2 id="hide-a-banner">Hide a banner</h2>
+    <ul>
+      <li>In the <strong>Theme editor</strong>, click the eye icon on the block, or set <strong>Position</strong> to 0.</li>
+    </ul>
+
+    <h2 id="image-sizes">Check the image sizes</h2>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Banner</th><th>Desktop</th><th>Mobile</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Single Card</th><td>900 × 1040px (portrait)</td><td>Same image</td></tr>
+          <tr><th scope="row">Double Card</th><td>1680 × 930px (landscape)</td><td>1536 × 1700px (separate image)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The text is white, so use images that are dark enough to read it. Keep key details in the centre, because images crop to fill the space.</p>
+
+    <h2 id="good-to-know">Good to know</h2>
+    <ul>
+      <li>The banner shows in the same position on every page of results.</li>
+      <li>If the position is higher than the number of products, the banner doesn't show.</li>
+      <li>Banners are the same in every market, unless you switch to a market in the Theme editor and edit them there.</li>
+    </ul>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="articles-by-tag">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Articles by tag</h1>
+    <p class="lead">Tags decide where Journal articles appear. Add tags to a post in <strong>Shopify admin › Content › Blog posts › [post] › Tags</strong>. Article lists are set up in the <strong>Theme editor</strong> (Online Store › Themes › Customize).</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="show-articles-by-tag-on-a-page">Show articles with a tag on a page</h2>
+    <ol class="steps">
+      <li>In the <strong>Theme editor</strong>, open the page and click <strong>Add section › Content Blog</strong>.</li>
+      <li>In <strong>Blog</strong>, choose <strong>Journal</strong>.</li>
+      <li>Type the tag in <strong>Narrow by tag</strong>, spelled exactly as it is on the articles.</li>
+      <li>Add a title and click <strong>Save</strong>.</li>
+    </ol>
+    <p>If you leave the tag empty, it shows the latest 10 articles.</p>
+
+    <h2 id="show-related-posts-under-an-article">Show related posts under an article</h2>
+    <ol class="steps">
+      <li>Give the article a tag that is marked <strong>Featured</strong> (see below).</li>
+      <li>Up to 12 articles with the same tag now show under it automatically.</li>
+    </ol>
+
+    <h2 id="create-or-label-a-tag">Name a tag for shoppers</h2>
+    <p>Set the label shoppers see for a tag, and choose which tags are featured.</p>
+    <ol class="steps">
+      <li>Go to <strong>Shopify admin › Content › Metaobjects › Tag translations</strong> and click <strong>Add entry</strong>.</li>
+      <li><strong>Tag title</strong>: the tag exactly as it is on the articles, including capitals.</li>
+      <li><strong>Tag translation</strong>: the label shoppers see.</li>
+      <li>Turn on <strong>Featured</strong> to show the tag in the Journal tag bar and use it for related posts.</li>
+      <li><strong>Optional</strong>: add a description and icon. Click <strong>Save</strong>.</li>
+    </ol>
+
+    <h2 id="show-articles-in-the-menu">Show an article in the menu</h2>
+    <ol class="steps">
+      <li>Tag the article <code>nav:bestsellers</code> or <code>nav:science</code>.</li>
+      <li>It appears in the menu's <strong>Articles</strong> block (up to 5 articles). See <a href="pages/site/navigation.html">Navigation</a>.</li>
+    </ol>
+
+    <h2 id="special-tags">Use special tags</h2>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Tag</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>hide</code></th><td>Hides the article from article lists. It still shows in the menu's Articles block.</td></tr>
+          <tr><th scope="row"><code>nav:…</code></th><td>Shows the article in the header menu.</td></tr>
+          <tr><th scope="row"><code>market_xx</code></th><td>Shows the article in that market, for example <code>market_de</code> for Germany.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>A market with <strong>Enable market articles</strong> turned on (in <strong>Shopify admin › Settings › Markets › [market] › Metafields</strong>) shows only articles tagged for that market.</p>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="promos">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Promos &amp; Products</h1>
+    <p class="lead">Turn product page sections on and off, and set up free shipping and gifts. Most of this is in the <strong>Theme editor</strong> (Online Store › Themes › Customize). For badges, subscriptions and sibling products, see <a href="pages/pdp/badges.html">Badges &amp; Labels</a>, <a href="pages/pdp/subscriptions.html">Subscriptions</a> and <a href="pages/pdp/siblings.html">Sibling products</a>.</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="product-page-toggles">Turn product page sections on or off</h2>
+    <p>Go to <strong>Theme editor</strong>, open any product page (select it from the dropdown at the top) and click the <strong>Product pages v2</strong> section. Changes apply to every product that uses the same template.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Setting</th><th>Shows</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Show Review Stars</th><td>Review stars under the title</td></tr>
+          <tr><th scope="row">Show Price per serving</th><td>"From £x per serving" pill</td></tr>
+          <tr><th scope="row">Show trust info</th><td>30-day guarantee row</td></tr>
+          <tr><th scope="row">Show 1% for planet</th><td>1% for the Planet row</td></tr>
+          <tr><th scope="row">Show testimonials / Ingredients / Footprint</th><td>Those sections, if the product has them filled in (see <a href="pages/pdp/more.html">More product options</a>)</td></tr>
+          <tr><th scope="row">Show Complimentary</th><td>"Works well taken alongside" products</td></tr>
+          <tr><th scope="row">Show Nutrition Icons</th><td>Nutrition icons</td></tr>
+          <tr><th scope="row">Show what's inside</th><td>The products in a bundle</td></tr>
+          <tr><th scope="row">Show Recharge Gift form</th><td>Gift subscription form</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="add-a-promo-message-under-add-to-cart">Add a promo message under the add to cart button</h2>
+    <p>This needs code. Ask a developer.</p>
+
+    <h2 id="free-shipping-bar">Set up the free shipping bar</h2>
+    <ol class="steps">
+      <li>Go to <strong>Theme editor › Theme settings › Carts</strong> and turn on <strong>Enable</strong>.</li>
+      <li>Set the <strong>Shipping threshold</strong> in pence, for example 4000 for £40.</li>
+      <li>Write the progress message and the success message, then click <strong>Save</strong>.</li>
+    </ol>
+
+    <h2 id="gift-with-purchase">Set up a gift with purchase</h2>
+    <ol class="steps">
+      <li>Go to <strong>Theme editor › Theme settings › In cart threshold offer</strong> and turn on <strong>Enable in cart offer</strong>.</li>
+      <li>Set the <strong>Free gift threshold</strong> in pence.</li>
+      <li>Choose the <strong>Gift product</strong> and up to two variants.</li>
+      <li>Add the teaser image and text. To show the teaser before the shopper reaches the threshold, turn on <strong>Show teaser</strong>.</li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+
+    <h2 id="cart-add-ons-and-subscriber-gifts">Add a cart add-on or subscriber gift</h2>
+    <p>Set these in <strong>Shopify admin › Products › [product] › Metafields</strong>:</p>
+    <ul>
+      <li><strong>Cross sell product</strong>: offers another product as an <strong>Add on +</strong> in the cart. Write its text in <strong>Cross sell description</strong> on the add-on product.</li>
+      <li><strong>Auto add product</strong>: a free gift for shoppers who subscribe.</li>
+    </ul>
+  </div>
+</main>
+
+</body>
+</html>

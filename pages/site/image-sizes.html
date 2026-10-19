@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="image-sizes">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Image sizes</h1>
+    <p class="lead">Upload sizes for desktop and mobile images. Most sections are in the <strong>Theme editor</strong> (Online Store › Themes › Customize). These images crop to fill their space, so keep the subject and any text in the centre.</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="builder-hero-banner">Hero banner (Builder Hero Image)</h2>
+    <p><strong>Theme editor › Slideshow Hero</strong> section › <strong>Builder Hero Image</strong> block.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th></th><th>Upload</th><th>Minimum</th><th>Ratio</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Desktop (Image)</th><td>3840 × 1800px</td><td>2560 × 1200px</td><td>32:15</td></tr>
+          <tr><th scope="row">Mobile (Mobile Image)</th><td>1536 × 2226px</td><td>960 × 1392px</td><td>9:13 portrait</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li>Tablets show the desktop image, cropped narrower. Keep the subject in the middle 70% of the width.</li>
+      <li>With <strong>Fixed height Layout</strong> turned on, the banner is a short strip. Upload 2560 × 1080px and keep the subject in the middle band.</li>
+    </ul>
+
+    <h2 id="v2-banner-video">Video banner (v2 Banner Video)</h2>
+    <p><strong>Theme editor › v2 Banner Video</strong> section. Add a video and an image for each screen size. The image shows while the video loads, or if it can't play.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th></th><th>Image</th><th>Video</th><th>Ratio</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Desktop</th><td>2880 × 1160px</td><td>1920 × 774px or larger</td><td>2.5:1</td></tr>
+          <tr><th scope="row">Tablet</th><td>1536 × 1838px</td><td>Same ratio as the image</td><td>0.84:1</td></tr>
+          <tr><th scope="row">Mobile</th><td>848 × 1340px</td><td>1080 × 1706px</td><td>0.63:1 portrait</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>Video</strong>: MP4, no sound (it always plays muted), a short seamless loop. Aim for under 5MB on mobile and 10MB on desktop.</li>
+      <li>On short screens the top and bottom are cut off. Keep text and subjects in the vertical middle.</li>
+    </ul>
+
+    <h2 id="article-cover">Article cover</h2>
+    <p><strong>Shopify admin › Content › Blog posts › [post] › Metafields › Article cover</strong>. If it's empty, the post's main <strong>Image</strong> is used. One image is used for both desktop and mobile.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th></th><th>Upload</th><th>Shown as</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Desktop</th><td rowspan="2">2560 × 1013px</td><td>Full image, 2.5:1</td></tr>
+          <tr><th scope="row">Mobile</th><td>Centre square only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout--warning">
+      <div>
+        <span class="callout__title">Mobile shows only the centre</span>
+        On mobile, about 30% of the image is cut from each side. Keep the subject inside the centre square.
+      </div>
+    </div>
+
+    <h2 id="builder-plp-header">Collection page header (Builder PLP Header)</h2>
+    <p><strong>Theme editor</strong> › open a collection page › <strong>Builder PLP Header</strong> section. PLP means product listing page, the page that lists a collection's products.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th></th><th>Upload</th><th>Ratio</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Desktop Image</th><td>2640 × 1668px</td><td>1.6:1</td></tr>
+          <tr><th scope="row">Mobile Image</th><td>1536 × 964px</td><td>1.6:1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Always add a desktop image. If you only add a mobile image, desktop shows nothing.</p>
+  </div>
+</main>
+
+</body>
+</html>

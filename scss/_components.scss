@@ -1,0 +1,1919 @@
+// ==========================================================================
+// Components — reusable building blocks for documentation pages
+// ==========================================================================
+
+@use 'sass:list';
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// Badge
+// --------------------------------------------------------------------------
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-accent;
+  background: rgba($color-accent, 0.1);
+  border-radius: $radius-pill;
+
+  &--muted {
+    color: $color-muted;
+    background: $color-surface-alt;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Button
+// --------------------------------------------------------------------------
+
+.btn {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: $white;
+  text-decoration: none;
+  background: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: $radius;
+  transition: background $transition-fast, border-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    color: $white;
+    background: darken($color-primary, 6%);
+  }
+
+  &--sm {
+    padding: 6px 12px;
+    font-size: $fs-xs + 1px;
+  }
+
+  &--ghost {
+    color: $color-primary;
+    background: transparent;
+    border-color: $color-border-strong;
+
+    &:hover {
+      color: $color-primary;
+      background: $color-surface-alt;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Cards
+// --------------------------------------------------------------------------
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  text-decoration: none;
+  color: $color-text;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  transition: border-color $transition-fast, box-shadow $transition-fast, transform $transition-fast;
+
+  &:hover {
+    color: $color-text;
+    border-color: $color-accent;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+
+    .card__arrow {
+      color: $color-accent;
+      transform: translateX(3px);
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: $fs-md;
+    font-weight: 700;
+    color: $color-primary;
+
+    svg {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: $color-accent;
+    }
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    color: $color-muted;
+  }
+
+  &__arrow {
+    margin-top: auto;
+    padding-top: 8px;
+    color: $color-border-strong;
+    transition: color $transition-fast, transform $transition-fast;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Callouts
+// --------------------------------------------------------------------------
+
+.callout {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  font-size: $fs-sm + 1px;
+  border-left: 3px solid;
+  border-radius: 0 $radius $radius 0;
+
+  &__title {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 700;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  @each $name, $colors in $callouts {
+    &--#{$name} {
+      background: list.nth($colors, 2);
+      border-color: list.nth($colors, 1);
+
+      .callout__title {
+        color: list.nth($colors, 1);
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Code blocks
+// --------------------------------------------------------------------------
+
+.code-block {
+  overflow: hidden;
+  background: $color-code-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 8px 6px 14px;
+    font-size: $fs-xs;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $color-muted;
+    border-bottom: 1px solid $color-border;
+  }
+
+  pre {
+    margin: 0;
+    padding: 14px 16px;
+    overflow-x: auto;
+    font-family: $font-mono;
+    font-size: $fs-sm;
+    line-height: 1.6;
+    color: $color-code-text;
+    tab-size: 2;
+  }
+}
+
+.copy-btn {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 4px 8px;
+  font-size: $fs-xs;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1;
+  color: $color-muted;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  transition: background $transition-fast, color $transition-fast, border-color $transition-fast;
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  &:hover {
+    color: $white;
+    background: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &.is-copied {
+    color: $white;
+    background: $color-success;
+    border-color: $color-success;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Heading anchors
+// --------------------------------------------------------------------------
+
+.heading-anchor {
+  @include reset-button;
+  margin-left: 8px;
+  padding: 0 4px;
+  font-weight: 400;
+  color: $color-border-strong;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity $transition-fast, color $transition-fast;
+
+  :hover > &,
+  &:focus-visible {
+    opacity: 1;
+  }
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Tables — brand style: Ancient Green header, alternating stone rows
+// --------------------------------------------------------------------------
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+}
+
+.table {
+  width: 100%;
+  font-size: $fs-sm + 1px;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  thead th {
+    font-size: $fs-xs + 1px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: $white;
+    background: $color-primary;
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background: $cold-stone;
+    }
+
+    tr:nth-child(even) {
+      background: $warm-stone;
+    }
+
+    th {
+      font-weight: 700;
+      color: $white;
+      background: $color-primary;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Do / Don't
+// --------------------------------------------------------------------------
+
+.do-dont {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+
+  &__item {
+    padding: 16px;
+    font-size: $fs-sm + 1px;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-top: 3px solid;
+    border-radius: $radius;
+
+    &--do {
+      border-top-color: $color-success;
+    }
+
+    &--dont {
+      border-top-color: $color-danger;
+    }
+
+    ul {
+      margin-top: 8px;
+    }
+  }
+
+  &__label {
+    font-size: $fs-xs;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    .do-dont__item--do & {
+      color: $color-success;
+    }
+
+    .do-dont__item--dont & {
+      color: $color-danger;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Steps — numbered how-to list
+// --------------------------------------------------------------------------
+
+.steps {
+  list-style: none;
+  padding-left: 0 !important;
+  counter-reset: step;
+
+  > li {
+    position: relative;
+    padding-left: 44px;
+    counter-increment: step;
+
+    + li {
+      margin-top: 18px !important;
+    }
+
+    &::before {
+      content: counter(step);
+      position: absolute;
+      top: -2px;
+      left: 0;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      font-size: $fs-sm;
+      font-weight: 700;
+      color: $white;
+      background: $color-primary;
+      border-radius: 50%;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Checklist
+// --------------------------------------------------------------------------
+
+.checklist {
+  list-style: none;
+  padding-left: 0 !important;
+
+  label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+
+  input {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    accent-color: $color-primary;
+  }
+
+  input:checked + span {
+    color: $color-muted;
+    text-decoration: line-through;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Chips — filter buttons
+// --------------------------------------------------------------------------
+
+.chip {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: $fs-sm - 1px;
+  font-weight: 600;
+  color: $color-text;
+  white-space: nowrap;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  transition: background $transition-fast, border-color $transition-fast, color $transition-fast;
+
+  &__count {
+    font-weight: 500;
+    color: $color-muted;
+  }
+
+  &:hover {
+    border-color: $color-border-strong;
+    background: $color-surface-alt;
+  }
+
+  &.is-active {
+    color: $white;
+    background: $color-primary;
+    border-color: $color-primary;
+
+    .chip__count {
+      color: rgba($white, 0.7);
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Switch
+// --------------------------------------------------------------------------
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: $fs-sm;
+  font-weight: 500;
+  color: $color-muted;
+  white-space: nowrap;
+  cursor: pointer;
+
+  input {
+    appearance: none;
+    position: relative;
+    width: 34px;
+    height: 20px;
+    background: $color-border-strong;
+    border-radius: $radius-pill;
+    cursor: pointer;
+    transition: background $transition-fast;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background: $white;
+      border-radius: 50%;
+      box-shadow: $shadow-sm;
+      transition: transform $transition-fast;
+    }
+
+    &:checked {
+      background: $color-primary;
+
+      &::after {
+        transform: translateX(14px);
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Empty state
+// --------------------------------------------------------------------------
+
+.empty-state {
+  padding: 64px 20px;
+  text-align: center;
+  color: $color-muted;
+
+  strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: $fs-lg;
+    color: $color-text;
+  }
+
+  .btn {
+    margin-top: 18px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Search palette
+// --------------------------------------------------------------------------
+
+.palette {
+  position: fixed;
+  inset: 0;
+  z-index: $z-palette;
+  display: flex;
+  justify-content: center;
+  padding: 10vh $gutter $gutter;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba($brave-black, 0.4);
+    backdrop-filter: blur(2px);
+    animation: fade-in $transition-fast;
+  }
+
+  &__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 620px;
+    max-height: 70vh;
+    overflow: hidden;
+    background: $color-surface;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+    animation: pop-in $transition-base;
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    border-bottom: 1px solid $color-border;
+
+    svg {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: $color-muted;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      height: 56px;
+      font: inherit;
+      font-size: $fs-md;
+      color: $color-text;
+      background: transparent;
+      border: 0;
+      outline: none;
+
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
+    }
+  }
+
+  &__results {
+    flex: 1;
+    padding: 8px;
+    overflow-y: auto;
+    list-style: none;
+  }
+
+  &__group {
+    padding: 10px 10px 4px;
+    font-size: $fs-xs;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-muted;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: $color-text;
+    border-radius: $radius;
+    cursor: pointer;
+
+    &.is-active {
+      background: rgba($color-primary, 0.08);
+      box-shadow: inset 3px 0 0 $color-accent;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    color: $color-muted;
+  }
+
+  &__empty {
+    padding: 32px 12px;
+    text-align: center;
+    color: $color-muted;
+  }
+
+  &__close {
+    @include reset-button;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    font-size: 22px;
+    color: $color-muted;
+    border-radius: 50%;
+
+    &:hover {
+      color: $color-text;
+      background: $color-bg;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    gap: 16px;
+    padding: 10px 16px;
+    font-size: $fs-xs;
+    color: $color-muted;
+    background: $color-bg;
+    border-top: 1px solid $color-border;
+
+    @include down(md) {
+      display: none;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Toast
+// --------------------------------------------------------------------------
+
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: $z-toast;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: $fs-sm;
+  font-weight: 500;
+  color: $white;
+  background: $brave-black;
+  border-radius: $radius;
+  box-shadow: $shadow-md;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: #8fd1ad;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @include down(md) {
+    right: $gutter;
+    left: $gutter;
+    justify-content: center;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Animations
+// --------------------------------------------------------------------------
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Image slot — temporary "+" placeholder until an image is saved
+// --------------------------------------------------------------------------
+
+.img-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  min-height: 160px;
+  margin: 24px 0 0;
+  padding: 20px;
+  background: rgba($color-surface-alt, 0.4);
+  border: 2px dashed $color-border-strong;
+  border-radius: $radius-lg;
+
+  &__add {
+    @include reset-button;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1;
+    color: $color-accent;
+    background: $color-surface;
+    border: 1px solid $color-border-strong;
+    border-radius: 50%;
+    transition: background $transition-fast, color $transition-fast;
+
+    &:hover {
+      color: $white;
+      background: $color-accent;
+    }
+  }
+
+  &__path {
+    @include reset-button;
+    max-width: 100%;
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $color-muted;
+    overflow-wrap: anywhere;
+    text-align: center;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-muted;
+    background: rgba($color-surface, 0.9);
+    border-radius: $radius-pill;
+  }
+
+  &__actions {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+    display: flex;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity $transition-fast;
+  }
+
+  &__btn {
+    @include reset-button;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    line-height: 1;
+    color: $white;
+    background: rgba($brave-black, 0.7);
+    border-radius: 50%;
+    transition: background $transition-fast;
+
+    &:hover {
+      background: $color-primary;
+    }
+
+    &--remove:hover {
+      background: $color-danger;
+    }
+  }
+
+  &:hover &__actions,
+  &__actions:focus-within {
+    opacity: 1;
+  }
+
+  &.has-image {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Image slider — crossfades between images, dots when more than one
+// --------------------------------------------------------------------------
+
+.img-slider {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background: $color-surface;
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+
+    // The first image stays in the flow so the slider takes its height
+    &:first-child {
+      position: relative;
+      height: auto;
+    }
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    z-index: 1;
+    display: flex;
+    padding: 0 3px;
+    background: rgba($brave-black, 0.45);
+    border-radius: $radius-pill;
+    transform: translateX(-50%);
+  }
+
+  // Prev / next arrows on the sides: no background, only visible on hover
+  &__arrow {
+    @include reset-button;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 64px;
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1;
+    color: $brave-black;
+    text-shadow: 0 0 2px $white, 0 0 8px $white, 0 0 14px $white;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity $transition-fast, color $transition-fast;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:focus-visible {
+      opacity: 1;
+    }
+
+    &--prev {
+      left: 4px;
+    }
+
+    &--next {
+      right: 4px;
+    }
+  }
+
+  &:hover &__arrow {
+    opacity: 1;
+  }
+
+  // The dot is drawn inside a larger click area, with no gaps between dots
+  &__dot {
+    @include reset-button;
+    display: grid;
+    place-items: center;
+    width: 15px;
+    height: 15px;
+
+    &::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: rgba($white, 0.5);
+      border-radius: 50%;
+      transition: background $transition-fast;
+    }
+
+    &.is-active::before,
+    &:hover::before {
+      background: $white;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Small helpers
+// --------------------------------------------------------------------------
+
+.table-intro {
+  font-size: $fs-sm;
+  color: $color-muted;
+}
+
+.muted {
+  color: $color-border-strong;
+}
+
+
+// Step screenshots in page sections: show the whole image, never crop
+.prose > .img-slot .img-slider {
+  background: $color-surface;
+
+  .img-slider__img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .img-slider__img:first-child {
+    max-height: 520px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Lightbox — any image opened large
+// --------------------------------------------------------------------------
+
+.img-slot:not(.section-card .img-slot) .img-slider__img {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: $z-palette;
+  display: grid;
+  place-items: center;
+  padding: 56px $gutter $gutter;
+
+  @include up(md) {
+    padding: 56px 72px 32px;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba($brave-black, 0.85);
+    animation: fade-in $transition-base;
+  }
+
+  &__stage {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    animation: zoom-in 0.25s ease;
+
+    .img-slider {
+      background: $color-surface;
+      border: 0;
+    }
+
+    .img-slider__img {
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .img-slider__img:first-child {
+      max-height: calc(100vh - 100px);
+    }
+  }
+
+  &__close {
+    @include reset-button;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    color: $white;
+    background: rgba($white, 0.12);
+    border-radius: 50%;
+
+    &:hover {
+      background: rgba($white, 0.25);
+    }
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Updated in the latest release (js/updates.js) — Ancient Green
+// --------------------------------------------------------------------------
+
+$color-updated: $ancient-green;
+
+.updated-pill {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: $white;
+  background: $color-updated;
+  border-radius: $radius-pill;
+}
+
+// Sidebar dot: pulses on hover; click it to jump to what changed
+.updated-dot {
+  position: relative;
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  margin-left: auto;
+  background: $color-updated;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform $transition-fast;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 2px solid $color-updated;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.3);
+    outline: none;
+
+    &::after {
+      animation: dot-pulse 1s ease-out infinite;
+    }
+  }
+}
+
+@keyframes dot-pulse {
+  from {
+    opacity: 0.8;
+    transform: scale(0.6);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+// "On this page": updated headings and groups — gold text only
+.toc__link.toc__link--updated {
+  color: $color-accent;
+
+  &:hover {
+    color: darken($color-accent, 8%);
+  }
+}
+
+// Home cards and section cards
+.card.is-updated,
+.section-card.is-updated {
+  border-color: $color-updated;
+  box-shadow: 0 0 0 1px $color-updated;
+
+}
+
+// Section cards and guide cards: tag on the top-right border, easy to spot
+.section-card > .updated-pill,
+.card > .updated-pill {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  z-index: 3;
+}
+
+// Guide cards on the Overview: tag beside the name
+.card__title .updated-pill {
+  margin-left: 8px;
+  font-size: 9px;
+  padding: 1px 7px;
+}
+
+// Headings on guide pages
+.prose h2.is-updated,
+.prose h3.is-updated {
+  .updated-pill {
+    margin-left: 10px;
+    font-size: 10px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Latest updates list (Overview)
+// --------------------------------------------------------------------------
+
+.updates {
+  padding: 22px 24px 18px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-top: 3px solid $color-updated;
+  border-radius: $radius-lg;
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 16px;
+    margin-bottom: 10px;
+
+    h2 {
+      margin: 0 !important;
+    }
+  }
+
+  &__date {
+    font-size: $fs-sm;
+    font-weight: 600;
+    color: $color-updated;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 4px;
+    color: $color-text;
+    text-decoration: none;
+    border-top: 1px solid $color-border;
+    transition: background $transition-fast;
+
+    &:hover {
+      color: $color-text;
+      background: rgba($color-updated, 0.06);
+
+      .updates__arrow {
+        color: $color-updated;
+        transform: translateX(3px);
+      }
+    }
+
+    @include down(md) {
+      grid-template-columns: minmax(0, 1fr) auto;
+
+      .updates__text {
+        grid-column: 1;
+      }
+    }
+  }
+
+  li:first-child .updates__item {
+    border-top: 0;
+  }
+
+  &__page {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: $fs-sm;
+    font-weight: 700;
+    color: $color-primary;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: $color-accent;
+    }
+  }
+
+  &__text {
+    font-size: $fs-sm + 1px;
+    color: $color-muted;
+  }
+
+  &__arrow {
+    color: $color-border-strong;
+    transition: color $transition-fast, transform $transition-fast;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Update note — opens from the "Updated" tag after following an update link
+// --------------------------------------------------------------------------
+
+.update-note {
+  position: absolute;
+  z-index: $z-toast - 2;
+  width: min(300px, calc(100vw - 24px));
+  padding: 14px 40px 14px 16px;
+  background: $color-surface;
+  border: 1px solid $color-updated;
+  border-radius: $radius;
+  box-shadow: $shadow-md;
+  animation: note-in 0.25s ease;
+
+  // Arrow pointing up at the tag
+  &::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: calc(var(--arrow-x, 50%) - 6px);
+    width: 12px;
+    height: 12px;
+    background: $color-surface;
+    border-top: 1px solid $color-updated;
+    border-left: 1px solid $color-updated;
+    transform: rotate(45deg);
+  }
+
+  &__title {
+    margin-bottom: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-updated;
+  }
+
+  // "+" bullets, one per update
+  &__list {
+    list-style: none;
+    font-size: $fs-sm + 1px;
+    line-height: 1.5;
+    color: $color-text;
+
+    li {
+      position: relative;
+      padding-left: 16px;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: $color-updated;
+    }
+  }
+
+  &__close {
+    @include reset-button;
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+    font-size: 18px;
+    color: $color-muted;
+    border-radius: 50%;
+
+    &:hover {
+      color: $color-text;
+      background: $color-bg;
+    }
+  }
+}
+
+@keyframes note-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+// The item you landed on glows green for a moment
+.is-update-target {
+  animation: update-glow 2.4s ease;
+  border-radius: $radius;
+}
+
+@keyframes update-glow {
+  0%,
+  60% {
+    box-shadow: 0 0 0 4px rgba($color-updated, 0.35);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($color-updated, 0);
+  }
+}
+
+// Title marker for page-level updates
+.page-header h1.is-updated .updated-pill {
+  margin-left: 12px;
+  font-size: 11px;
+  vertical-align: middle;
+}
+
+// Notes page: one problem per line
+.notes-list li + li {
+  margin-top: 8px;
+}
+
+// --------------------------------------------------------------------------
+// Close icon — the theme's close icon, rust; grey on hover
+// --------------------------------------------------------------------------
+
+.icon-close {
+  display: block;
+  width: 15px;
+  height: 15px;
+  transition: color 0.4s cubic-bezier(0.32, 0.24, 0.15, 1);
+}
+
+.palette__close,
+.update-note__close,
+.section-modal__close,
+.topbar__menu[aria-expanded='true'] {
+  color: $color-close;
+
+  &:hover {
+    color: $color-muted;
+  }
+}
+
+// On dark backgrounds the icon stays white
+.lightbox__close,
+.img-slot__btn--remove {
+  color: $white;
+
+  .icon-close {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.update-note__close {
+  display: grid;
+  place-items: center;
+
+  .icon-close {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+// Close buttons: only the X — no background, border or circle
+.section-modal__close,
+.palette__close,
+.update-note__close,
+.lightbox__close,
+.img-slot__btn--remove,
+.topbar__menu[aria-expanded='true'] {
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  &:hover {
+    background: none !important;
+  }
+}
+
+// White X on images and the dark lightbox: a soft shadow keeps it readable
+.lightbox__close .icon-close,
+.img-slot__btn--remove .icon-close {
+  filter: drop-shadow(0 0 2px rgba($brave-black, 0.7));
+}
+
+// No focus box around the X; keyboard focus shows as a colour change instead
+.section-modal__close,
+.palette__close,
+.update-note__close,
+.lightbox__close {
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:focus-visible {
+    color: $color-muted;
+  }
+}
+
+// Panels that take focus when they open don't show a focus box
+.section-modal__panel:focus,
+.lightbox__stage:focus {
+  outline: none;
+}
+
+// --------------------------------------------------------------------------
+// Image editor (zoom views): reorder, add images, draw boxes
+// --------------------------------------------------------------------------
+
+.img-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__empty {
+    display: grid;
+    place-items: center;
+    min-height: 160px;
+    font-size: $fs-sm;
+    color: $color-muted;
+    border: 2px dashed $color-border-strong;
+    border-radius: $radius-lg;
+  }
+
+  // Covers the whole image frame; boxes sit in the inner picture area
+  &__layer {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.6s ease; // same fade as the images
+
+    // Between images: gone at once, then fades in with the next image
+    &.is-hidden {
+      opacity: 0;
+      transition: none;
+
+      * {
+        pointer-events: none !important;
+      }
+    }
+  }
+
+  &__area {
+    position: absolute;
+  }
+
+  &__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-right: auto;
+  }
+
+  &__thumb {
+    @include reset-button;
+    width: 56px;
+    height: 40px;
+    overflow: hidden;
+    background: $color-surface;
+    border: 2px solid $color-border;
+    border-radius: $radius-sm;
+    cursor: grab;
+    transition: border-color $transition-fast, opacity $transition-fast;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      pointer-events: none;
+    }
+
+    &:hover {
+      border-color: $color-border-strong;
+    }
+
+    &.is-active {
+      border-color: $color-accent;
+    }
+
+    &.is-dragging {
+      opacity: 0.4;
+    }
+  }
+
+  &__btn {
+    @include reset-button;
+    padding: 6px 12px;
+    font-size: $fs-xs + 1px;
+    font-weight: 600;
+    color: $color-primary;
+    background: $color-surface;
+    border: 1px solid $color-border-strong;
+    border-radius: $radius-pill;
+    transition: background $transition-fast, color $transition-fast;
+
+    &:hover {
+      color: $white;
+      background: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+}
+
+// A box drawn on an image: drag to move, corner to resize, X to delete
+.img-box {
+  position: absolute;
+  border: 2px dashed $color-accent;
+  background: none;
+  border-radius: 2px;
+  cursor: move;
+  pointer-events: auto;
+  touch-action: none;
+
+  &__handle {
+    position: absolute;
+    right: -6px;
+    bottom: -6px;
+    width: 12px;
+    height: 12px;
+    background: $white;
+    border: 2px solid $color-accent;
+    border-radius: 2px;
+    cursor: nwse-resize;
+  }
+
+  &__del {
+    @include reset-button;
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    color: $color-close;
+    background: $white;
+    border-radius: 50%;
+    box-shadow: $shadow-sm;
+    opacity: 0;
+    transition: opacity $transition-fast;
+
+    .icon-close {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  &:hover &__del {
+    opacity: 1;
+  }
+}
+
+// The lightbox editor bar sits on the dark backdrop
+.lightbox .img-editor__bar {
+  padding: 8px 10px;
+  background: rgba($color-surface, 0.95);
+  border-radius: $radius;
+}
+
+// Veil outside the boxes (the boxes themselves stay clear)
+.img-editor__mask {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+// Dots sit under the image, not on top of it
+.img-slider__dots {
+  position: static;
+  justify-content: center;
+  padding: 8px 0;
+  background: none;
+  border-radius: 0;
+  transform: none;
+}
+
+.img-slider__dot {
+  &::before {
+    background: $color-border-strong;
+  }
+
+  &.is-active::before,
+  &:hover::before {
+    background: $color-accent;
+  }
+}
+
+// Images (and arrows) live in a frame; the dots sit below it
+.img-slider__frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card .img-slider__frame {
+  height: 100%;
+}
+
+// Height caps go on the image frame, so the dots below are never cut off
+.section-modal__shot .img-slider,
+.section-modal__panel:has(.section-modal__blocks-wrap:empty) .section-modal__shot .img-slider {
+  max-height: none;
+}
+
+// The image sets the frame height (no cap on the frame, so nothing is cropped)
+.section-modal__panel:has(.section-modal__blocks-wrap:empty) .section-modal__shot .img-slider__img:first-child {
+  max-height: calc(100vh - 160px);
+}
+
+// Space between the dots under images
+.img-slider__dots {
+  gap: 10px;
+}
+
+// Editor bar sits over the bottom of the image; shows on hover
+.img-editor__bar--over {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+  z-index: 3;
+  padding: 6px 8px;
+  background: rgba($color-surface, 0.94);
+  border-radius: $radius;
+  box-shadow: $shadow-sm;
+  opacity: 0;
+  transition: opacity $transition-fast;
+}
+
+.img-slider:hover .img-editor__bar--over,
+.img-editor__bar--over:focus-within {
+  opacity: 1;
+}
+
+// Images in the zoom views are already zoomed in: normal cursor
+.img-editor .img-slider__img {
+  cursor: default;
+}
+
+// Keyboard: no gold focus box on the image arrows, dots or section arrows
+.img-slider__arrow,
+.img-slider__dot,
+.section-modal__step {
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+// Only the image showing can be clicked (the hidden ones sit on top of it)
+.img-slider__img:not(.is-active) {
+  pointer-events: none;
+}
+
+// The editor bar never blocks anything while it's hidden, and hides while
+// you work on a box so boxes can go right to the bottom of the image
+.img-editor__bar--over {
+  pointer-events: none;
+}
+
+.img-slider:hover .img-editor__bar--over,
+.img-editor__bar--over:focus-within {
+  pointer-events: auto;
+}
+
+.img-editor.is-on-box .img-editor__bar--over {
+  opacity: 0;
+  pointer-events: none;
+}
+
+// Boxes on the normal (not zoomed) images: same look, not editable
+// One layer per image: it fades in and out with its image, and only once the
+// image has loaded (no boxes over the loading shimmer)
+.img-view-boxes {
+  z-index: 1;
+  opacity: 0;
+
+  &.is-active.is-ready {
+    opacity: 1;
+  }
+}
+
+.img-slider__frame.is-loading .img-view-boxes {
+  opacity: 0;
+  transition: none;
+}
+
+.img-box--view {
+  pointer-events: none;
+  cursor: inherit;
+}
+
+// Remove an image: × on each thumbnail (on hover) and a "Remove image" button
+.img-editor__thumb-wrap {
+  position: relative;
+  display: inline-flex;
+
+  &:hover .img-editor__thumb-remove,
+  .img-editor__thumb-remove:focus-visible {
+    opacity: 1;
+  }
+}
+
+.img-editor__thumb-remove {
+  @include reset-button;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: $color-close;
+  background: $white;
+  border-radius: 50%;
+  box-shadow: $shadow-sm;
+  opacity: 0;
+  transition: opacity $transition-fast;
+
+  .icon-close {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+.img-editor__btn--remove {
+  color: $color-close;
+
+  &:hover {
+    color: $white;
+    background: $color-close;
+    border-color: $color-close;
+  }
+}
+
+// Lists with "+" bullets (notes and callouts)
+.plus-list {
+  margin-top: 4px;
+  list-style: none;
+  padding-left: 0 !important;
+
+  li {
+    position: relative;
+    padding-left: 16px;
+  }
+
+  li + li {
+    margin-top: 4px;
+  }
+
+  li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: $color-accent;
+  }
+}
+
+// "Export edits" (local copy only)
+.export-edits {
+  @include reset-button;
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: $z-toast - 1;
+  padding: 10px 16px;
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: $white;
+  background: $color-primary;
+  border-radius: $radius-pill;
+  box-shadow: $shadow-md;
+
+  &:hover {
+    background: darken($color-primary, 6%);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Loading states: soft shimmer while slots and images load
+// --------------------------------------------------------------------------
+
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+
+  to {
+    background-position: 200% 0;
+  }
+}
+
+%shimmer {
+  background: linear-gradient(90deg, $color-surface-alt 25%, lighten($color-surface-alt, 5%) 50%, $color-surface-alt 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+// A slot still finding its images: no "+", no file name, just the shimmer
+.img-slot.is-loading {
+  min-height: 160px;
+  padding: 0;
+  border: 0;
+  border-radius: $radius-lg;
+  @extend %shimmer;
+
+  .section-card & {
+    min-height: 0;
+    border-radius: 0;
+  }
+}
+
+.img-loader {
+  display: block;
+}
+
+// An image still downloading: shimmer behind it until it appears
+.img-slider__frame.is-loading {
+  min-height: 120px;
+  @extend %shimmer;
+
+  .img-slider__img {
+    opacity: 0;
+  }
+}
+
+.section-card .img-slider__frame.is-loading {
+  min-height: 0;
+}

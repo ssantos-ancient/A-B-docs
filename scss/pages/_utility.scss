@@ -1,0 +1,247 @@
+// ==========================================================================
+// Page — Utility classes
+// ==========================================================================
+
+@use 'sass:list';
+@use '../variables' as *;
+
+// --------------------------------------------------------------------------
+// Toolbar — search, filters and view options (sticks under the topbar)
+// --------------------------------------------------------------------------
+
+.toolbar {
+  position: sticky;
+  top: $topbar-h;
+  z-index: 10;
+  margin: -12px (-$gutter) 0;
+  padding: 12px $gutter 14px;
+  background: rgba($color-bg, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-border;
+
+  @include up(md) {
+    margin: -12px (-$gutter-lg) 0;
+    padding: 12px $gutter-lg 14px;
+  }
+
+  &__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    svg {
+      position: absolute;
+      left: 14px;
+      width: 18px;
+      height: 18px;
+      color: $color-muted;
+      pointer-events: none;
+    }
+
+    input {
+      width: 100%;
+      height: 48px;
+      padding: 0 130px 0 44px;
+      font: inherit;
+      font-size: $fs-base;
+      color: $color-text;
+      background: $color-surface;
+      border: 1px solid $color-border-strong;
+      border-radius: $radius;
+      outline: none;
+      transition: border-color $transition-fast, box-shadow $transition-fast;
+
+      &::placeholder {
+        color: rgba($color-muted, 0.8);
+      }
+
+      &:focus {
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+      }
+    }
+  }
+
+  &__count {
+    position: absolute;
+    right: 14px;
+    font-size: $fs-xs + 1px;
+    font-weight: 500;
+    color: $color-muted;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  &__chips {
+    display: flex;
+    flex: 1;
+    gap: 6px;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include up(lg) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.utility-hint {
+  margin: 14px 0 4px;
+  font-size: $fs-xs + 1px;
+  color: $color-muted;
+}
+
+// --------------------------------------------------------------------------
+// Category & subcategory blocks
+// --------------------------------------------------------------------------
+
+.cat-block {
+  margin-top: 40px;
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: $fs-lg;
+    font-weight: 700;
+    color: $color-primary;
+    border-bottom: 2px solid $color-accent;
+  }
+
+  &__count {
+    font-size: $fs-xs + 1px;
+    font-weight: 500;
+    color: $color-muted;
+  }
+}
+
+.subcat-block {
+  margin-top: 20px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0 8px;
+    margin-bottom: 10px;
+    font-size: $fs-xs;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-muted;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__count {
+    font-weight: 500;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Class cards
+// --------------------------------------------------------------------------
+
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.class-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+    box-shadow: $shadow-md;
+  }
+
+  &.is-expanded {
+    border-color: $color-primary;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__name {
+    font-family: $font-mono;
+    font-size: $fs-sm;
+    font-weight: 600;
+    color: $color-primary;
+    overflow-wrap: anywhere;
+  }
+
+  &__copy {
+    margin-left: auto;
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    line-height: 1.45;
+    color: $color-muted;
+  }
+
+  &__css {
+    display: none;
+    margin-top: 2px;
+    padding: 8px 10px;
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    color: $color-code-text;
+    background: $color-code-bg;
+    border-radius: $radius-sm;
+    user-select: text;
+
+    .is-expanded &,
+    .show-all-css & {
+      display: block;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Responsive badges
+// --------------------------------------------------------------------------
+
+.resp-badge {
+  flex-shrink: 0;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: $radius-pill;
+
+  @each $name, $colors in $resp-badges {
+    &--#{$name} {
+      background: list.nth($colors, 1);
+      color: list.nth($colors, 2);
+    }
+  }
+}

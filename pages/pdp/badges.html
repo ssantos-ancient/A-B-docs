@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="../../">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+B Docs</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/updates.js" defer></script>
+<script src="js/image-edits.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body data-page="pdp-badges">
+
+<main class="content" id="content">
+  <header class="page-header">
+    <h1>Badges &amp; Labels</h1>
+    <p class="lead">Add badges, ribbons, icons and short messages to a product. You set them all on the product in <strong>Shopify admin › Products › [product] › Metafields</strong>.</p>
+  </header>
+
+  <div class="prose">
+    <h2 id="add-a-product-badge">Add a badge</h2>
+    <p>A round badge in the corner of the first product image on the product page.</p>
+    <ol class="steps">
+      <li>Go to <strong>Shopify admin › Content › Metaobjects › Product badge</strong> and create an entry.</li>
+      <li>Paste the badge artwork code into <strong>SVG</strong>. Ask the design team for it.</li>
+      <li>Set <strong>Position</strong> to <code>left</code> or <code>right</code>, exactly as written here.</li>
+      <li>Go to <strong>Shopify admin › Products › [product] › Metafields › Product badge</strong>, add the entry and click <strong>Save</strong>.</li>
+    </ol>
+    <ul>
+      <li>You can add up to 6 badges per side. If there are several on one side, they take turns every 3 seconds.</li>
+      <li>Any other position, even with an extra space, hides the badge.</li>
+    </ul>
+
+    <h2 id="add-a-ribbon">Add a ribbon</h2>
+    <p>Fill in one of these in <strong>Shopify admin › Products › [product] › Metafields</strong>:</p>
+    <ul>
+      <li><strong>Promo tag</strong>: a text ribbon at the top right, for example "New". It's hidden when the product has a badge.</li>
+      <li><strong>Promo tag left</strong>: a text ribbon at the top left. It always shows.</li>
+    </ul>
+
+    <h2 id="add-an-image-icon">Add an icon to the product image</h2>
+    <ol class="steps">
+      <li>Go to <strong>Shopify admin › Content › Metaobjects › Product image icon</strong> and create an entry with up to 2 icons and their alt text (a short description of each icon).</li>
+      <li>Go to <strong>Shopify admin › Products › [product] › Metafields › Product image icon</strong> and select the entry.</li>
+      <li>In <strong>Product image icon position</strong>, choose Top left (default), Top right, Bottom left or Bottom right, then click <strong>Save</strong>.</li>
+    </ol>
+    <p>The icon sits on top of badges and ribbons, so put it in a different corner.</p>
+
+    <h2 id="add-a-message-under-the-reviews">Add a message under the review stars</h2>
+    <p>Fill in <strong>Shopify admin › Products › [product] › Metafields › PDP below review stars message</strong>. It shows as a pill under the stars on the product page (PDP), for example "Our bestseller".</p>
+
+    <h2 id="labels-on-product-cards">Add a label to product cards</h2>
+    <p>Product cards are the small product tiles in collections and sliders. Fill in one of these in <strong>Shopify admin › Products › [product] › Metafields</strong>:</p>
+    <ul>
+      <li><strong>Product card top left pill</strong>: a pill on the product card.</li>
+      <li><strong>Left / Right content product card</strong>: corner text on product cards in a grid.</li>
+    </ul>
+
+    <h2 id="what-shows-where">Check what shows in each corner</h2>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Corner</th><th>Can show</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Top left</th><td>Badge (left), Promo tag left, image icon (default)</td></tr>
+          <tr><th scope="row">Top right</th><td>Badge (right) <em>or</em> Promo tag</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Use one item per corner so they don't overlap.</p>
+  </div>
+</main>
+
+</body>
+</html>
